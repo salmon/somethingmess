@@ -1,0 +1,17 @@
+{
+  "hostname":"inceptor",
+  "database":"default",
+  "transwarp_suites" : [
+    "useindex",
+    "lookupjoin",
+    "cbo",
+    "globalcombine"
+  ],
+  "jdbc_suites" : [
+    "jdbcfiltertest",
+    "jdbcglobalcombine",
+    "jdbcglobalsingle"
+  ]
+}
+
+

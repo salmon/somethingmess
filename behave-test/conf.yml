@@ -1,0 +1,83 @@
+- name: hyperbase_test
+  hostname: inceptor
+  database: default
+  rootdir: hyperbase-test
+  transwarp_suites:
+  - useindex:
+    - 00_data_init:
+      - local_dir: wuxi_data
+      - hdfs_dir: /tmp/wuxi_data
+    - 02_inceptor_ddl:
+      - sqlfile:
+        - create_tmp.sql
+        - create_mapping.sql
+  - lookupjoin:
+  - cbo:
+    - 01_hyperbase_ddl:
+      skip: true
+    - 02_inceptor_ddl:
+      - sqlfile:
+        - create_tmp.sql
+        - create_mapping.sql
+  - esLookupjoin:
+
+  - globalcombine:
+    - 00_data_init:
+      - local_dir: data/630vector_with_key
+      - hdfs_dir: /tmp/testcase_combine/data_type_tmp
+  - globalsingle:
+    - 00_data_init:
+      - local_dir: data/630vector_with_key
+      - hdfs_dir: /tmp/testcase_single/data_type_tmp
+  - esGlobalCombine:
+    - 00_data_init:
+      - local_dir: data/630vector_with_key
+      - hdfs_dir: /tmp/testcase_combine_es/data_type_tmp
+  - esGlobalsingleDataType:
+    - 00_data_init:
+      - local_dir: data/630vector_with_key
+      - hdfs_dir: /tmp/testcase_esGlobalsingleDataType/data_type_tmp
+
+  - elasticSearchTest:
+    - 00_data_init:
+      - local_dir: wuxi_data_es
+      - hdfs_dir: /tmp/
+    - 02_inceptor_ddl:
+      - sqlfile:
+        - create_tmp.sql
+        - create_mapping.sql
+  - eyeBallTest_andOr:
+    - 00_data_init:
+      - local_dir: wuxi_data_or
+      - hdfs_dir: /tmp/wuxi_data_or
+    - 02_inceptor_ddl:
+      - sqlfile:
+        - create_tmp.sql
+        - create_mapping.sql
+
+  - hyperbaseReader:
+    - 00_data_init:
+      - local_dir: data/630vector_with_key
+      - hdfs_dir: /tmp/testcase_hyperbaseReader/data_type_tmp
+  - filtertest:
+    - 00_data_init:
+      - local_dir: data/630vector_with_key
+      - hdfs_dir: /tmp/testcase_filter/data_type_tmp
+
+  jdbc_suites:
+  - jdbcfiltertest:
+    - 00_data_init:
+      - local_dir: data/630vector_with_key
+      - hdfs_dir: /tmp/testcase_jdbcfilter/data_type_tmp
+  - jdbcglobalsingle:
+    - 00_data_init:
+      - local_dir: data/630vector_with_key
+      - hdfs_dir: /tmp/testcase_singlejdbc/data_type_tmp
+  - jdbcglobalcombine:
+    - 00_data_init:
+      - local_dir: data/630vector_with_key
+      - hdfs_dir: /tmp/testcase_combinejdbc/data_type_tmp
+  - jdbcplsql:
+
+- name: inceptor_unittest
+  rootdir: inceptor_unittest

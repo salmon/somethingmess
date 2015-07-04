@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuite errors="0" failures="2" name="01phase.first_suite" skipped="0" tests="2" time="0.0"><testcase classname="01phase.first_suite" name="case1" status="failed" time="3.0"><system-out>
+<![CDATA[
+Captured stdout:
+This is stdout
+]]>
+</system-out><system-err>
+<![CDATA[
+Captured stderr:
+This is stderr
+]]>
+</system-err></testcase><testcase classname="01phase.first_suite" name="case2" status="failed" time="3.0"><system-out>
+<![CDATA[
+Captured stdout:
+This is stdout
+]]>
+</system-out><system-err>
+<![CDATA[
+Captured stderr:
+This is stderr
+]]>
+</system-err></testcase></testsuite>
